@@ -58,10 +58,12 @@ Page({
     })
   },
   iptChange(e){ 
-    let timeArr = util.setTimeHalf();   
+    let timeArr = util.setTimeHalf(); 
+    let date = new Date();  
     this.setData({
       curIpt:e.detail.value,
-      curRange:timeArr
+      curRange:timeArr,
+      date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
     })
   },
   formReset(){
