@@ -17,11 +17,9 @@
                     结束时间：{{curRange[curFinish]}}
                 </text>
             </picker>  
-            <button type="default" bindtap="toCalender">
-              <text>
-                    选择日期：{{date}}
-              </text>
-            </button>
+            <text class="pick-time time" bindtap="toCalender">
+                  选择日期：{{date}}
+            </text>
             <label class="time"><switch class="switch" checked bindchange="switch1Change" />提醒</label>
         </view>
         <view class="flex-row" wx:if="{{curIpt}}">        
