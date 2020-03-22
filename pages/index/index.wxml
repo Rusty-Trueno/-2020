@@ -38,7 +38,7 @@
             <input class="ipt-edit" value="{{item.content}}"  data-id="{{index}}" bindinput='iptEdit' />
             <button class="btn btn-edit" data-id="{{index}}" bindtap="saveEdit">修改</button>
         </view>
-        
+        <text class="time">{{item.date}}</text>
         <text class="time"> {{item.beginTime}}-{{item.finishTime}}</text>
         <icon class="ico-done" bindtap="setDone" data-id="{{index}}" type="success_no_circle" size='18' color="{{item.done?'#d7d7d7':'#6fa6cf'}}" />
         <icon class="ico-delete" bindtap="toDelete" data-id="{{index}}" type='cancel' size='20' color="#6fa6cf" />

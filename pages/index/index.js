@@ -71,9 +71,10 @@ Page({
     })
   },
   formSubmit(){
-    let cnt = this.data.curIpt,newLists = this.data.lists,i = newLists.length,begin=this.data.curRange[this.data.curBegin],finish = this.data.curRange[this.data.curFinish];
+    let cnt = this.data.curIpt,newLists = this.data.lists,i = newLists.length,begin=this.data.curRange[this.data.curBegin],finish = this.data.curRange[this.data.curFinish],
+    date=this.data.date;
     if (cnt){
-       newLists.push({id:i,content:cnt,done:false,beginTime:begin,finishTime:finish,editing:false});
+       newLists.push({id:i,content:cnt,done:false,beginTime:begin,finishTime:finish,date:date,editing:false});
        this.setData({
         lists:newLists,
         curIpt:''
