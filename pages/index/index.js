@@ -22,12 +22,19 @@ Page({
     curRange:[],
     curBegin:0,
     curFinish:1,
-    remind:[]
+    remind:[],
+    date:''
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  //日历跳转
+  toCalender: function(){
+    wx.navigateTo({
+      url: '../calender/index',
     })
   },
   onLoad: function () {

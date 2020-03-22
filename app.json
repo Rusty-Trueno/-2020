@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/background-audio/background-audio",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/calender/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,5 +11,8 @@
     "navigationBarTitleText": "备忘录",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap16.json"
+  "sitemapLocation": "sitemap16.json",
+  "usingComponents": {
+    "van-calendar": "@vant/weapp/calendar/index"
+  }
 }
