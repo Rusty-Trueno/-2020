@@ -201,7 +201,7 @@ Page({
       })
     }else{
       this.setData({
-        progress:(done/total)*100
+        progress: parseInt((done/total)*100)
       })
     }
   }
