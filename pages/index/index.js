@@ -136,19 +136,19 @@ Page({
   },
   toDelete(e){
     let i = e.target.dataset.id,newLists = this.data.lists;
+    let count=0;
     newLists.map(function(l,index){
       if (l.id == i){ 
         if(l.done){
-          this.setData({
-            done:this.data.done-1
-          })
+          count++;
         }    
         newLists.splice(index,1);
       }
     })   
     this.setData({
         lists:newLists,
-        total:this.data.total-1
+        total:this.data.total-1,
+        done:this.data.done-count
       })
     this.changeProgress();
   },
