@@ -10,6 +10,9 @@ Page({
   },
   onClose() {
     this.setData({ show: false });
+    wx.navigateBack({
+      delta: 1
+    })
   },
   formatDate(date) {
     date = new Date(date);
