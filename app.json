@@ -13,6 +13,7 @@
   },
   "sitemapLocation": "sitemap16.json",
   "usingComponents": {
-    "van-calendar": "@vant/weapp/calendar/index"
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-progress": "@vant/weapp/progress/index"
   }
 }

@@ -23,7 +23,10 @@ Page({
     curBegin:0,
     curFinish:1,
     remind:[],
-    date:''
+    date:'',
+    total:0,
+    done:0,
+    progress:0
   },
   //事件处理函数
   bindViewTap: function() {
@@ -79,9 +82,11 @@ Page({
        newLists.push({id:i,content:cnt,done:false,beginTime:begin,finishTime:finish,date:date,editing:false});
        this.setData({
         lists:newLists,
-        curIpt:''
+        curIpt:'',
+        total:this.data.total+1
       }) 
     }
+    this.changeProgress();
   },
   beginChange(e){
      this.setData({
@@ -115,35 +120,59 @@ Page({
   },
   setDone(e){
     let i = e.target.dataset.id,originalDone = this.data.lists[i].done;
+    if(originalDone){
       this.setData({
-        lists:editArr(this.data.lists,i,{done:!originalDone})
+        done:this.data.done-1
       })
+    }else{
+      this.setData({
+        done:this.data.done+1
+      })
+    }
+    this.setData({
+      lists:editArr(this.data.lists,i,{done:!originalDone}),
+    })
+    this.changeProgress();
   },
   toDelete(e){
     let i = e.target.dataset.id,newLists = this.data.lists;
     newLists.map(function(l,index){
-      if (l.id == i){      
+      if (l.id == i){ 
+        if(l.done){
+          this.setData({
+            done:this.data.done-1
+          })
+        }    
         newLists.splice(index,1);
       }
     })   
     this.setData({
-        lists:newLists
+        lists:newLists,
+        total:this.data.total-1
       })
+    this.changeProgress();
   },
   doneAll(){
     let newLists = this.data.lists;
     newLists.map(function(l){
       l.done = true;
+      this.setData({
+        done:this.data.done+1
+      })
     })   
     this.setData({
         lists:newLists
       })
+    this.changeProgress();
   },
   deleteAll(){
     this.setData({
         lists:[],
-        remind:[]
+        remind:[],
+        done:0,
+        total:0
       })
+    this.changeProgress();
   },
   showUnfinished (){
     this.setData({
@@ -162,6 +191,21 @@ Page({
       key:'todolist',
       data:listsArr
     })
+  },
+  changeProgress(){
+    let done = this.data.done;
+    let total = this.data.total;
+    console.log(done);
+    console.log(total);
+    if(total==0){
+      this.setData({
+        progress:100
+      })
+    }else{
+      this.setData({
+        progress:(done/total)*100
+      })
+    }
   }
   
 })

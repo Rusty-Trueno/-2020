@@ -190,3 +190,7 @@
   width:300rpx;
   color: #fff;
 }
+
+.progress{
+  margin: 10px;
+}
