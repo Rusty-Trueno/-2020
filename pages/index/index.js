@@ -156,12 +156,10 @@ Page({
     let newLists = this.data.lists;
     newLists.map(function(l){
       l.done = true;
-      this.setData({
-        done:this.data.done+1
-      })
     })   
     this.setData({
-        lists:newLists
+        lists:newLists,
+        done:this.data.total
       })
     this.changeProgress();
   },
