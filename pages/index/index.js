@@ -204,6 +204,30 @@ Page({
         progress: parseInt((done/total)*100)
       })
     }
-  }
+  },
+
+  onChange(event){
+    console.log(event)
+    this.setData({
+      value: event.detail
+    })
+  },
   
+  onSearch(e) {
+    console.log(this.data.lists)
+    for(let i=0;i<this.data.lists.length;i++){
+      if(this.data.lists[i].content.indexOf(e.detail)>=0){
+        wx.showToast({
+          title: "事件为：" + this.data.lists[i].content
+        })
+        return;
+      }
+    }
+    wx.showToast({
+      title: "事件不存在"
+    })
+  },
+  onClick() {
+    Toast('搜索' + this.data.value);
+  },
 })

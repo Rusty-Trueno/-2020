@@ -3,6 +3,7 @@
   <view  bindtap="bindViewTap" class="header">    
     欢迎<text class="userinfo-nickname">{{userInfo.nickName}}</text>使用
   </view>
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="onSearch" />
 <form bindsubmit="formSubmit" bindreset="formReset">
  <view class="input-wrap">    
       <input type="text" value='{{curIpt}}' returnKeyType='send' placeholder="请输入待做的事" class="ipt-main"  bindinput='iptChange' />     
@@ -38,6 +39,7 @@
         </view>
         <text class="time">{{item.date}}</text>
         <text class="time"> {{item.beginTime}}-{{item.finishTime}}</text>
+        <van-rate value="{{ item.rank }}" bind:change="onChange" />
         <icon class="ico-done" bindtap="setDone" data-id="{{index}}" type="success_no_circle" size='18' color="{{item.done?'#d7d7d7':'#6fa6cf'}}" />
         <icon class="ico-delete" bindtap="toDelete" data-id="{{index}}" type='cancel' size='20' color="#6fa6cf" />
     </view>
